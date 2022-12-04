@@ -16,7 +16,7 @@ interface Props {
   page: string;
 }
 
-export default function Cryptocurrency({ cryptos, page }: Props) {
+export default function Cryptocurrencies({ cryptos, page }: Props) {
   return (
     <>
       <Head>
@@ -26,8 +26,9 @@ export default function Cryptocurrency({ cryptos, page }: Props) {
       <main className="flex items-center justify-center flex-col py-10 px-36">
         <div className="flex items-center justify-center flex-wrap gap-5 cursor-pointer">
           {cryptos.map((crypto) => (
-            <div
+            <Link
               key={crypto.id}
+              href={`/criptomoedas/${crypto.id}`}
               className="flex items-center justify-center flex-col"
             >
               <h1>{crypto.name}</h1>
@@ -40,7 +41,7 @@ export default function Cryptocurrency({ cryptos, page }: Props) {
               <p>
                 Preço: R$ {crypto.current_price.toString().replace(".", ",")}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
 
