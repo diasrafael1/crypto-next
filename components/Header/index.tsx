@@ -1,5 +1,10 @@
+import Link from "next/link";
+
 export default function Header() {
-  const navLinks = [{ label: "Home" }, { label: "Criptomoedas" }];
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Criptomoedas", href: "/criptomoedas?page=1" },
+  ];
 
   return (
     <header className="flex items-center justify-between px-5 py-1 bg-blue-500">
@@ -14,7 +19,7 @@ export default function Header() {
               key={link.label}
               className="cursor-pointer font-medium text-white"
             >
-              {link.label}
+              <Link href={link.href}>{link.label}</Link>
             </li>
           ))}
         </ul>
