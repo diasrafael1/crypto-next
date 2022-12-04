@@ -2,7 +2,7 @@ import Head from "next/head";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>CryptoNext</title>
         <link rel="icon" href="/favicon.ico" />
@@ -17,6 +17,6 @@ export default function Home() {
           </p>
         </section>
       </main>
-    </div>
+    </>
   );
 }
