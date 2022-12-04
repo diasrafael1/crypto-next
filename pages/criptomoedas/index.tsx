@@ -1,5 +1,7 @@
+import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   cryptos: [
@@ -11,13 +13,14 @@ interface Props {
       current_price: number;
     }
   ];
+  page: string;
 }
 
-export default function Cryptocurrency({ cryptos }: Props) {
+export default function Cryptocurrency({ cryptos, page }: Props) {
   return (
     <>
       <Head>
-        <title>CryptoNext - Criptomoedas</title>
+        <title>Criptomoedas | CryptoNext</title>
       </Head>
 
       <main className="flex items-center justify-center flex-col py-10 px-36">
@@ -42,27 +45,35 @@ export default function Cryptocurrency({ cryptos }: Props) {
         </div>
 
         <div className="mt-4 flex gap-2">
-          <button className="py-1 px-2 border border-blue-500 rounded-3xl font-semibold hover:bg-blue-500 hover:text-white">
+          <Link
+            href={`/criptomoedas?page=${page == "1" ? page : Number(page) - 1}`}
+            className="py-1 px-2 border border-blue-500 rounded-3xl font-semibold hover:bg-blue-500 hover:text-white"
+          >
             Anterior
-          </button>
-          <button className="py-1 px-2 border border-blue-500 rounded-3xl font-semibold hover:bg-blue-500 hover:text-white">
+          </Link>
+          <Link
+            href={`/criptomoedas?page=${Number(page) + 1}`}
+            className="py-1 px-2 border border-blue-500 rounded-3xl font-semibold hover:bg-blue-500 hover:text-white"
+          >
             Proximo
-          </button>
+          </Link>
         </div>
       </main>
     </>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { page } = context.query;
   const res = await fetch(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=brl&order=market_cap_desc&per_page=20&page=1&sparkline=false"
+    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=brl&order=market_cap_desc&per_page=20&page=${page}&sparkline=false`
   );
   const cryptos = await res.json();
 
   return {
     props: {
       cryptos,
+      page,
     },
   };
 }
