@@ -1,23 +1,12 @@
-import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
-import { format } from "date-fns";
+import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { ICrypto } from "../../@types/ICrypto";
+import DateHistory from "../../components/DateHistory";
+import MarketInfos from "../../components/MarketInfos";
 
 interface Prop {
-  crypto: {
-    id: string;
-    symbol: string;
-    name: string;
-    image: { large: string };
-    market_data: {
-      current_price: { brl: number; usd: number };
-      ath: { brl: number; usd: number };
-      ath_date: { brl: string };
-      high_24h: { brl: number; usd: number };
-      low_24h: { brl: number; usd: number };
-      last_updated: string;
-    };
-  };
+  crypto: ICrypto;
 }
 
 export default function Cryptocurrency({ crypto }: Prop) {
@@ -27,7 +16,7 @@ export default function Cryptocurrency({ crypto }: Prop) {
         <title>{crypto.name} | CryptoNext</title>
       </Head>
 
-      <main className="px-20 py-10">
+      <main className="px-20 py-4">
         <section className="flex items-center justify-between">
           <div>
             <h1 className="text-4xl">{crypto.name}</h1>
@@ -40,38 +29,8 @@ export default function Cryptocurrency({ crypto }: Prop) {
             height={200}
           />
         </section>
-        <section className="flex justify-center gap-10 mt-5">
-          <div>
-            <h2 className="text-2xl">Preço atual</h2>
-            <div className="flex gap-3">
-              <p>R$ {crypto.market_data.current_price.brl}</p>
-              <p>US$ {crypto.market_data.current_price.usd}</p>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-2xl">Preço mais alto 24h</h2>
-            <div className="flex gap-3">
-              <p>R$ {crypto.market_data.high_24h.brl}</p>
-              <p>US$ {crypto.market_data.high_24h.usd}</p>
-            </div>
-            <h2 className="text-2xl mt-3">Preço mais baixo 24h</h2>
-            <div className="flex gap-3">
-              <p>R$ {crypto.market_data.low_24h.brl}</p>
-              <p>US$ {crypto.market_data.low_24h.usd}</p>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-2xl">Preço mais alto</h2>
-            <div className="flex gap-3">
-              <p>R$ {crypto.market_data.ath.brl}</p>
-              <p>US$ {crypto.market_data.ath.usd}</p>
-            </div>
-            <p>
-              Data:
-              {format(new Date(crypto.market_data.ath_date.brl), "dd/MM/yyyy")}
-            </p>
-          </div>
-        </section>
+        <MarketInfos crypto={crypto} />
+        <DateHistory cryptoId={crypto.id} />
       </main>
     </>
   );
