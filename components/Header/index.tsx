@@ -7,11 +7,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="flex items-center justify-between px-5 py-1 bg-blue-500">
-      <h1 className="text-3xl font-bold text-white cursor-pointer">
-        CryptoNext
-      </h1>
-
+    <header className="flex items-center justify-center h-10 px-5 py-1 bg-blue-500">
       <nav>
         <ul className="flex gap-5">
           {navLinks.map((link) => (

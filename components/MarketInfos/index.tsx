@@ -7,7 +7,7 @@ interface Prop {
 
 export default function MarketInfos({ crypto }: Prop) {
   return (
-    <section className="flex justify-center gap-10 mt-5">
+    <section className="flex justify-center gap-10 mt-5 sm:gap-5 sm:flex-col">
       <div>
         <h2 className="text-2xl">Preço atual</h2>
         <div className="flex gap-3">

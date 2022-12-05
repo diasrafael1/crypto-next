@@ -16,8 +16,8 @@ export default function Cryptocurrency({ crypto }: Prop) {
         <title>{crypto.name} | CryptoNext</title>
       </Head>
 
-      <main className="px-20 py-4">
-        <section className="flex items-center justify-between">
+      <main className="px-20 md:px-10 py-4">
+        <section className="flex items-center justify-between sm:flex-col-reverse">
           <div>
             <h1 className="text-4xl">{crypto.name}</h1>
             <p className="text-2xl text-gray-500">{crypto.symbol}</p>

@@ -34,7 +34,7 @@ export default function DateHistory({ cryptoId }: { cryptoId: string }) {
   }
 
   return (
-    <section className="mt-10 flex items-center gap-10">
+    <section className="mt-10 flex items-center gap-10 sm:gap-5 sm:flex-col">
       <div>
         <h2 className="text-2xl mb-4">Consultar histórico de preço</h2>
         <DatePicker

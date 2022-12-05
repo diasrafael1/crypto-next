@@ -23,7 +23,7 @@ export default function Cryptocurrencies({ cryptos, page }: Props) {
         <title>Criptomoedas | CryptoNext</title>
       </Head>
 
-      <main className="flex items-center justify-center flex-col py-10 px-36">
+      <main className="flex items-center justify-center flex-col py-10 px-36 md:px-10">
         <div className="flex items-center justify-center flex-wrap gap-5 cursor-pointer">
           {cryptos.map((crypto) => (
             <Link

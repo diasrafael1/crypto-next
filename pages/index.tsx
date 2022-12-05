@@ -8,7 +8,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-screen flex items-center p-36 bg-gray-800">
+      <main className="h-screen flex items-center p-36 sm:p-10 bg-gray-800">
         <section>
           <h1 className="font-bold text-4xl text-white">CryptoNext</h1>
           <p className="text-2xl text-white">
