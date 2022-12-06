@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { ICrypto } from "../../@types/ICrypto";
+import { ICrypto } from "../../types/ICrypto";
 import DateHistory from "../../components/DateHistory";
 import MarketInfos from "../../components/MarketInfos";
 

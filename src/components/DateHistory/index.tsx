@@ -3,7 +3,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { ICrypto } from "../../@types/ICrypto";
+import { ICrypto } from "../../types/ICrypto";
 
 export default function DateHistory({ cryptoId }: { cryptoId: string }) {
   const [date, setDate] = useState(new Date());

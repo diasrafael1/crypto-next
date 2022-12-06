@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { ICrypto } from "../../@types/ICrypto";
+import { ICrypto } from "../../types/ICrypto";
 
 interface Prop {
   crypto: ICrypto;
