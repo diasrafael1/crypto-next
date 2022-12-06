@@ -1,6 +1,6 @@
 # CryptoNext
 
-Uma aplicação que lista criptomoedas consumindo a API da Coingecko, feita em Next.js.
+Uma aplicação feita em Next.js que lista criptomoedas consumindo a API da Coingecko.
 
 ## Deploy
 
