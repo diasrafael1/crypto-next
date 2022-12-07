@@ -12,8 +12,6 @@ export default function DateHistory({ cryptoId }: { cryptoId: string }) {
   const [error, setError] = useState(false);
 
   async function handleConsult() {
-    console.log(date);
-
     if (+date > +new Date()) {
       setShowPrice(false);
       setError(true);
